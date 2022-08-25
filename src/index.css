@@ -1,13 +1,128 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --font-family: 'Basier Circle', Helvetica, Arial, Lucida, sans-serif;
+  --font-family-alt: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --fs-base: 1rem;
+  --fw-normal: 400;
+  --fw-bold: 700;
+
+  --rounded-sm: 0.625rem; /* 10px */
+  --rounded-lg: 1.25rem; /* 20px */
+
+  --spacing-0: 0;
+  --spacing-1: 0.5rem;
+  --spacing-2: 0.75rem;
+  --spacing-3: 1rem;
+  --spacing-4: 1.5rem;
+  --spacing-5: 2rem;
+
+  --border-0: 0;
+  --border-1: 1px;
+  --border-3: 3px;
+
+  --white: #ffffff;
+  --off-white: #f5f5f5;
+  --yellow: #eac344;
+
+  --gray-pale: #f5f8fa;
+  --gray-light: #edf1f0;
+  --gray: #cbd6e2;
+  --gray-dark: #767679;
+  --gray-darker: #637381;
+  --gray-darkest: #33475b;
+
+  --bg-color: #edf1f0;
+  --text-color: var(--gray-darker);
+
+  --error-text: #a84e4e;
+  --error-border: #deb7b7;
+  --error-bg: #f3eaea;
+
+  /* USED ONLY FOR REFERENCE */
+  --breakpoint-xs-max: 35.9375rem; /* 575px */
+  --breakpoint-sm-min: 36rem; /* 576px */
+  --breakpoint-sm-max: 47.9375rem; /* 767px */
+  --breakpoint-md-min: 48rem; /* 768px */
+  --breakpoint-md-max: 61.9375rem; /* 991px */
+  --breakpoint-lg-min: 62rem; /* 992px */
+  --breakpoint-lg-max: 74.9375rem; /* 1199px */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: var(--spacing-0);
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-bold);
+}
+
+:is(h1, h2, h3, h4, h5, h6, p):not(:last-child) {
+  margin-bottom: var(--spacing-3);
+}
+
+img {
+  max-width: 100%;
+}
+
+#root {
+  z-index: 1;
+  isolation: isolate;
+  position: relative;
+}
+
+#root::before {
+  z-index: -1;
+  content: '';
+  position: fixed;
+  inset: auto 0 0;
+  height: 100px;
+
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgdmlld0JveD0iMCAwIDEyODAgODYiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNGRkZGRkYiPjxwYXRoIGQ9Ik0xMjgwIDYzLjFjLTMuOCAwLTcuNi4zLTExLjQuOC0xOC4zLTMyLjYtNTkuNi00NC4yLTkyLjItMjUuOS0zLjUgMi02LjkgNC4zLTEwIDYuOS0yMi43LTQxLjctNzQuOS01Ny4yLTExNi42LTM0LjUtMTQuMiA3LjctMjUuOSAxOS4zLTMzLjggMzMuMy0uMi4zLS4zLjYtLjUuOC0xMi4yLTEuNC0yMy43IDUuOS0yNy43IDE3LjUtMTEuOS02LjEtMjUuOS02LjMtMzcuOS0uNi0yMS43LTMwLjQtNjQtMzcuNS05NC40LTE1LjgtMTIuMSA4LjYtMjEgMjEtMjUuNCAzNS4yLTEwLjgtOS4zLTI0LjMtMTUtMzguNS0xNi4yLTguMS0yNC42LTM0LjYtMzgtNTkuMi0yOS45LTE0LjMgNC43LTI1LjUgMTYtMzAgMzAuMy00LjMtMS45LTguOS0zLjItMTMuNi0zLjgtMTMuNi00NS4yLTYxLjUtNzEuMS0xMDctNTcuNkE4Ni4zOCA4Ni4zOCAwIDAgMCA1MzguNiAzM2MtOC43LTMuNi0xOC43LTEuOC0yNS40IDQuOC0yMy4xLTI0LjgtNjEuOS0yNi4yLTg2LjctMy4xLTcuMSA2LjYtMTIuNSAxNC44LTE1LjkgMjQtMjYuNy0xMC4xLTU2LjktLjQtNzIuOCAyMy4zLTIuNi0yLjctNS42LTUuMS04LjktNi45LS40LS4yLS44LS40LTEuMi0uNy0uNi0yNS45LTIyLTQ2LjQtNDcuOS00NS44LTExLjUuMy0yMi41IDQuNy0zMC45IDEyLjUtMTYuNS0zMy41LTU3LTQ3LjQtOTAuNS0zMS0yMiAxMC44LTM2LjQgMzIuNi0zNy44IDU3LjEtNy0yLjMtMTQuNS0yLjgtMjEuOC0xLjYtMTQtMjEuNy00My4xLTI3LjktNjQuOC0xMy44LTUuNiAzLjYtMTAuMyA4LjQtMTMuOSAxNEMxMy41IDY0IDYuOCA2My4yIDAgNjMuMi0uMSA2My4yIDAgODYgMCA4NmgxMjgwVjYzLjF6Ii8+PC9nPjwvc3ZnPg==);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  filter: drop-shadow(0 0.25rem 0.25rem rgb(0 0 0 / 0.25));
+}
+
+/* HELPER CLASSES */
+.font-normal {
+  font-weight: var(--fw-normal) !important;
+}
+
+.mb-0 {
+  margin-bottom: var(--spacing-0) !important;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 48rem) {
+  #root {
+    padding-top: var(--spacing-5);
+  }
 }
