@@ -55,7 +55,9 @@ function App() {
 
   return (
     <div className={ybCss.root}>
-      <img src={logoSrc} className={ybCss.logo} alt="logo" />
+      <header>
+        <img src={logoSrc} className={ybCss.logo} alt="logo" />
+      </header>
       <PropertyGrid properties={filteredProperties} />
       <ComplianceChecks
         properties={filteredProperties}
