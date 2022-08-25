@@ -1,0 +1,63 @@
+.root {
+  align-self: baseline;
+  border: var(--border-1) solid var(--gray);
+  background-color: var(--gray-pale);
+  border-radius: var(--rounded-sm);
+  overflow: hidden;
+}
+
+.trigger {
+  position: relative;
+  appearance: none;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+
+  color: inherit;
+  background-color: var(--gray-pale);
+  border: none;
+  border-bottom: var(--border-1) solid var(--gray);
+
+  font-size: inherit;
+  text-align: left;
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+.trigger::after {
+  --size: 1.25rem;
+
+  content: '';
+  flex-shrink: 0;
+  align-self: center;
+
+  width: var(--size);
+  height: var(--size);
+
+  margin-left: auto;
+
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: var(--size);
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.open > .trigger::after {
+  transform: rotate(-180deg);
+}
+
+.trigger > div {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.collapse {
+  overflow: hidden;
+  height: auto;
+  transition: max-height 150ms ease-in-out;
+}
