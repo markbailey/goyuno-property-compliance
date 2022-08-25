@@ -1,0 +1,73 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "name": "The Shard",
+      "complianceChecks": [
+        {
+          "type": "electric",
+          "cost": 2500.0,
+          "checkDate": "2023-04-09"
+        },
+        {
+          "type": "structural",
+          "cost": 5301.2,
+          "checkDate": "2023-04-12"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "The Gherkin",
+      "complianceChecks": [
+        {
+          "type": "fire safety",
+          "cost": 1000.0,
+          "checkDate": "2023-12-10"
+        },
+        {
+          "type": "electric",
+          "cost": 1300.2,
+          "checkDate": "2023-06-01"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Big Ben",
+      "complianceChecks": [
+        {
+          "type": "fire safety",
+          "cost": 2300.0,
+          "checkDate": "2023-01-01"
+        },
+        {
+          "type": "electric",
+          "cost": 1190.2,
+          "checkDate": "2022-08-27"
+        },
+        {
+          "type": "structural",
+          "cost": 5300.2,
+          "checkDate": "2023-04-02"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "St. Pauls Cathedral",
+      "complianceChecks": [
+        {
+          "type": "gas",
+          "cost": 1190.2,
+          "checkDate": "2022-08-29"
+        },
+        {
+          "type": "structural",
+          "cost": 20300.12,
+          "checkDate": "2023-01-02"
+        }
+      ]
+    }
+  ]
+}
