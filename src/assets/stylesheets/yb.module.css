@@ -1,0 +1,27 @@
+.root {
+  display: grid;
+  grid-template-rows: auto 1fr repeat(4, auto);
+  gap: var(--spacing-4);
+
+  width: 100%;
+  max-width: 40.5rem; /* 648px */
+
+  padding: var(--spacing-5);
+  margin: 0 auto;
+}
+
+.logo {
+  max-width: 128px;
+  place-self: center;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 48rem /* 768px */) {
+  .root {
+    border: var(--border-3) solid var(--gray-dark);
+    border-radius: var(--rounded-lg);
+
+    box-shadow: 0 0 6px 2px rgb(0 0 0 / 0.25);
+    background-color: var(--white);
+  }
+}
