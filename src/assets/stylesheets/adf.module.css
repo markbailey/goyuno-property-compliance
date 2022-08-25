@@ -1,0 +1,72 @@
+.label {
+  display: block;
+  margin-bottom: var(--spacing-1);
+}
+
+.input {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  padding: var(--spacing-1) var(--spacing-2);
+
+  font-family: var(--font-family-alt);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  line-height: 22px;
+
+  color: var(--gray-darkest);
+  background-color: var(--gray-pale);
+  border: var(--border-1) solid var(--gray);
+  border-radius: var(--rounded-sm);
+}
+
+.button {
+  --button-bg: var(--gray);
+
+  padding: var(--spacing-1) var(--spacing-3);
+  background-color: var(--button-bg);
+
+  border: var(--border-1) solid transparent;
+  border-radius: var(--rounded-sm);
+
+  letter-spacing: 5px;
+  font-size: calc(var(--fs-base) - 1px);
+  font-weight: var(--fw-bold) !important;
+
+  text-transform: uppercase !important;
+}
+
+.button:not(:disabled) {
+  --button-bg: var(--yellow);
+  color: var(--white) !important;
+  cursor: pointer;
+}
+
+.button:not(:disabled):hover {
+  --button-bg: rgb(211, 176, 62);
+}
+
+.inputGroup {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: var(--spacing-1);
+}
+
+@media (max-width: 575px) {
+  .inputGroup > .button {
+    padding: var(--spacing-3);
+  }
+
+  .inputGroup > .input {
+    padding: var(--spacing-2) var(--spacing-3);
+    height: auto;
+    line-height: calc(var(--spacing-3) + var(--spacing-1));
+  }
+}
+
+@media (min-width: 576px) {
+  .inputGroup {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: none;
+  }
+}
